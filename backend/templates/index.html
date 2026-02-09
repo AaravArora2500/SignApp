@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Langauge Gestures - Download</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .wrapper {
+            width: 100%;
+            max-width: 1600px;
+            aspect-ratio: 16 / 9;
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.25);
+            display: flex;
+            overflow: hidden;
+        }
+
+        .left-section {
+            flex: 1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .left-section::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+        }
+
+        .left-section::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            bottom: -50px;
+            left: -50px;
+        }
+
+        .left-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo-circle {
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .left-section h1 {
+            font-size: 3.5em;
+            font-weight: 800;
+            margin-bottom: 15px;
+            line-height: 1.1;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .left-section .subtitle {
+            font-size: 1.4em;
+            opacity: 0.95;
+            margin-bottom: 40px;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .features-list {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.05em;
+            opacity: 0.95;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateX(10px);
+        }
+
+        .feature-icon {
+            font-size: 24px;
+            min-width: 30px;
+        }
+
+        .right-section {
+            flex: 1;
+            padding: 60px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #fafbfc;
+        }
+
+        .right-section h2 {
+            font-size: 2.2em;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .download-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.1);
+            width: 100%;
+            max-width: 400px;
+            border: 2px solid #f0f0f0;
+            transition: all 0.3s ease;
+        }
+
+        .download-card:hover {
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.15);
+            border-color: #667eea;
+        }
+
+        .file-details {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .file-size {
+            font-size: 0.95em;
+            color: #555;
+            margin: 8px 0;
+            font-weight: 500;
+        }
+
+        .version-badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .download-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 16px 30px;
+            font-size: 1.15em;
+            font-weight: 700;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.6);
+        }
+
+        .download-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .requirements-box {
+            background: #fff3cd;
+            border-radius: 12px;
+            padding: 18px;
+            border-left: 4px solid #ffc107;
+            text-align: left;
+            font-size: 0.95em;
+        }
+
+        .requirements-box h4 {
+            color: #856404;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .requirements-box ul {
+            list-style: none;
+            color: #856404;
+        }
+
+        .requirements-box li {
+            padding: 5px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .requirements-box li::before {
+            content: '✓';
+            font-weight: bold;
+            color: #ffc107;
+        }
+
+        .footer-text {
+            margin-top: 25px;
+            color: #7f8c8d;
+            font-size: 0.9em;
+            text-align: center;
+        }
+
+        @media (max-width: 1200px) {
+            .wrapper {
+                flex-direction: column;
+                aspect-ratio: auto;
+            }
+
+            .left-section {
+                padding: 40px 30px;
+            }
+
+            .right-section {
+                padding: 40px 30px;
+            }
+
+            .left-section h1 {
+                font-size: 2.5em;
+            }
+
+            .right-section h2 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Left Section -->
+        <div class="left-section">
+            <div class="left-content">
+                <div class="logo-circle">🎥</div>
+                <h1> Sign Langauge Gestures to Audio</h1>
+                <p class="subtitle">Real-time Sign Language to Speech Conversion</p>
+                
+                <div class="features-list">
+                    <div class="feature-item">
+                        <span class="feature-icon">🤖</span>
+                        <span>AI-powered Sign Langauge Gestures recognition</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🎤</span>
+                        <span>Natural text-to-speech output</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">📹</span>
+                        <span>Works with any video call app</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">⚡</span>
+                        <span>Real-time processing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Section -->
+        <div class="right-section">
+            <h2>Get Started</h2>
+            
+            <div class="download-card">
+                <div class="file-details">
+                    <div style="font-size: 0.95em; color: #666; font-weight: 500;">Ready to Download?</div>
+                    <div class="file-size">File size: 245 MB</div>
+                    <span class="version-badge">v1.0.0</span>
+                </div>
+
+                <button class="download-btn" onclick="downloadInstaller()">
+                    <span>⬇️</span>
+                    <span>Download Installer</span>
+                </button>
+
+                <div class="requirements-box">
+                    <h4>System Requirements</h4>
+                    <ul>
+                        <li>Windows 10/11 (64-bit)</li>
+                        <li>Webcam (built-in or USB)</li>
+                        <li>Administrator rights</li>
+                        <li>Internet connection</li>
+                    </ul>
+                </div>
+
+                <div class="footer-text">
+                    <p>💡 Run the installer as Administrator for smooth installation</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function downloadInstaller() {
+            console.log('Download started');
+            window.location.href = '/download';
+            setTimeout(() => {
+                alert('Download started! Check your downloads folder.\n\n⚠️ Important: Run the installer as Administrator');
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

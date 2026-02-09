@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASL to Audio - Quick Start Guide</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; line-height: 1.7; color: #333; max-width: 750px; margin: 20px auto; padding: 20px; background-color: #fdfdff; }
+        h1, h2 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        code { background-color: #ecf0f1; color: #2c3e50; padding: 3px 6px; border-radius: 4px; font-family: 'Courier New', Courier, monospace; }
+        .step { margin-bottom: 25px; padding: 20px; border-left: 5px solid #3498db; background-color: #f8f9fa; border-radius: 5px; }
+        .warning { padding: 20px; background-color: #fff3cd; border-left: 5px solid #ffc107; border-radius: 5px; }
+        ol, ul { padding-left: 20px; }
+        li { margin-bottom: 10px; }
+        strong { color: #2980b9; }
+    </style>
+</head>
+<body>
+    <h1>Quick Start Guide: ASL to Audio</h1>
+    <p>Follow these steps to get the application running correctly. This guide can be accessed anytime by clicking the "Help" button in the app.</p>
+
+    <div class="step">
+        <h2>Step 1: Start the Backend Server (Developer Step)</h2>
+        <p>Before using the app, the Go backend server must be running. This process is for developers only.</p>
+        <ol>
+            <li>Open a terminal or command prompt.</li>
+            <li>Navigate to the <code>ml-service-backend</code> project folder.</li>
+            <li>Run the command: <code>go run .</code></li>
+        </ol>
+    </div>
+
+    <div class="step">
+        <h2>Step 2: Set Up OBS Studio (One-Time User Setup)</h2>
+        <p>This application requires the "OBS Virtual Camera" to share your webcam with multiple programs. You only need to do this setup once.</p>
+        <ol>
+            <li>Open OBS Studio (the installer should have placed a shortcut on your desktop).</li>
+            <li>In the "Sources" panel at the bottom, click the <strong>+</strong> button and add a <strong>Video Capture Device</strong>.</li>
+            <li>In the properties window that opens, select your physical webcam from the "Device" dropdown and click OK.</li>
+            <li>Resize the webcam preview in the main OBS window to fill the black screen.</li>
+            <li>In the "Controls" panel on the right, click <strong>Start Virtual Camera</strong>.</li>
+            <li>You can now minimize the OBS window. It will continue running in the background.</li>
+        </ol>
+    </div>
+
+    <div class="step">
+        <h2>Step 3: Run the ASL to Audio App</h2>
+        <ol>
+            <li>Launch the "ASL to Audio" application from your desktop or Start Menu.</li>
+            <li>The "Camera Source" dropdown should automatically select <strong>OBS Virtual Camera</strong>. If not, select it manually.</li>
+            <li>Click the large power button to start the service. The status should change to "Connected".</li>
+        </ol>
+    </div>
+    
+    <div class="step">
+        <h2>Step 4: Configure Your Meeting App (e.g., Google Meet)</h2>
+        <ol>
+            <li>Join your video call in Google Meet, Zoom, Discord, etc.</li>
+            <li>Go to the audio and video settings within that meeting application.</li>
+            <li>Set your <strong>Camera</strong> to <strong>OBS Virtual Camera</strong>.</li>
+            <li>Set your <strong>Microphone</strong> to <strong>CABLE Output (VB-Audio Virtual Cable)</strong>.</li>
+        </ol>
+    </div>
+
+    <div class="warning">
+        <h3>Troubleshooting</h3>
+        <ul>
+            <li><strong>"OBS Cam not found" error in the app:</strong> Make sure OBS is running and you have clicked "Start Virtual Camera".</li>
+            <li><strong>"VB-CABLE not found" error in the app:</strong> This means the driver did not install correctly. Please re-run the application installer that you downloaded.</li>
+            <li><strong>No audio in the meeting for others:</strong> Ensure "CABLE Output" is selected as the microphone in your meeting app.</li>
+             <li><strong>Can't hear others in the meeting:</strong> Make sure your real headphones/speakers are set as the "Speakers" or "Audio Output" in your meeting app's settings.</li>
+        </ul>
+    </div>
+
+</body>
+</html>

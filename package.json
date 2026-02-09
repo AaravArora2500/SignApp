@@ -1,0 +1,53 @@
+{
+  "name": "sign-langauge-gestures-desktop-app",
+  "version": "1.0.0",
+  "description": "Captures video and routes ML audio to a virtual mic.",
+  "author": "Anant Gaur",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1"
+  },
+  "build": {
+    "appId": "com.anant.sign-language-gestures-audio",
+    "productName": "Sign Langauge Gestures",
+
+    "files": [
+      "main.js",
+      "preload.js",
+      "renderer.js",
+      "index.html",
+      "style.css",
+      "package.json"
+    ],
+
+    "extraResources": [
+      {
+        "from": "build-resources",
+        "to": "app/build-resources",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+
+    "win": {
+      "target": "nsis",
+      "requestedExecutionLevel": "requireAdministrator",
+      "sign":null
+    },
+
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "allowElevation": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "include": "build-resources/installer.nsh"
+    }
+  }
+}

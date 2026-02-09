@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Language Gestures to Audio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    
+    <!-- Header Section -->
+    <div class="header-section">
+      <div class="header-badge">LIVE</div>
+      <h1 class="app-title">Sign Language Gestures to Speech</h1>
+    </div>
+
+    <!-- Display Panels -->
+    <div class="display-panels">
+      <!-- Current Word Display -->
+      <div class="word-display">
+        <div class="word-label">Current Word</div>
+        <div id="current-word" class="word-text">---</div>
+      </div>
+
+      <!-- Sentence Display -->
+      <div class="sentence-display">
+        <div class="sentence-label">Sentence</div>
+        <div id="current-sentence" class="sentence-text">---</div>
+      </div>
+    </div>
+    
+    <!-- Video Feed -->
+    <div class="video-container">
+      <div class="video-frame">
+        <video id="localVideo" autoplay playsinline muted></video>
+        <div class="video-indicator"></div>
+      </div>
+    </div>
+
+    <!-- Settings Section -->
+    <div class="settings-container">
+      <label for="video-source" class="settings-label">
+        <span class="settings-icon">📷</span>
+        Camera Source
+      </label>
+      <select id="video-source" class="video-select"></select>
+    </div>
+
+    <!-- Main Controls -->
+    <div class="controls-container">
+      <button id="power-button" class="power-button" aria-label="Toggle recognition">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" stroke-width="3"/>
+          <line x1="50" y1="20" x2="50" y2="40" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <div id="status-text" class="status-text">Ready</div>
+    </div>
+
+    <!-- Keyboard Hints -->
+    <div class="keyboard-hints">
+      <div class="hint"><kbd>A</kbd> Autocorrect</div>
+      <div class="hint"><kbd>Space</kbd> Add Word</div>
+      <div class="hint"><kbd>Enter</kbd> Submit</div>
+      <div class="hint"><kbd>P</kbd> Pause</div>
+      <div class="hint"><kbd>Del</kbd> Delete</div>
+    </div>
+
+  </div>
+  <script src="./renderer.js"></script>
+</body>
+</html>
